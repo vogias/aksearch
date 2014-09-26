@@ -1,0 +1,11 @@
+name = AK Search Tool
+description = "Search using Agro Know search engine"
+package = Agro Know
+core = 7.x
+dependencies[] = jquery_update
+files[] = aksearch.install
+files[] = aksearch.module
+files[] = aksearch.js
+files[] = aksearch.css
+files[] = aksearch.admin.inc
+configure=admin/config/aksearch/settings

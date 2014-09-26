@@ -1,0 +1,126 @@
+<div id="main_content">
+    <div class="">
+        <carousel interval="myInterval">
+	      <slide ng-repeat="item in carousel_images" active="slide.active">
+	        <a href="{{item.url}}" target=_blank ><img ng-src="{{item.image}}" style="margin:auto;"></a>
+	        <div class="carousel-caption">
+	          <!--<h4>Slide {{$index}}</h4>
+	          <p>{{slide.text}}</p>-->
+	        </div>
+	      </slide>
+	    </carousel>
+    </div>
+	<div class="col-xs-12 col-sm-12 col-md-12 search">
+	    <form ng-submit="submit()" class="form-wrapper cf">  <!-- IN CASE WE NEED TO SEPARATE THE TYPE OF SEARCH i.e educational ng-submit="submit('educational')" -->
+		    <input ng-model="search_query" name="search_query" type="text" placeholder="{{languages.search_here}}..." >
+		    <button type="submit">{{languages.search}}</button>
+		</form>
+	</div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 landing_links">
+        <h2 class="centerheader edu-pathways">{{languages.educational_pathways}}</h2>
+        <a href="#/search/?q=*&endUserRoles=parent&learningResourceTypes=pathway" class="link col-xs-6 col-sm-6 col-md-6 game-based">{{languages.families}}</a>
+        <a href="#/search/?q=*&endUserRoles=teacher&learningResourceTypes=pathway" class="link col-xs-6 col-sm-6 col-md-6 inquiry">{{languages.school_groups}}</a>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 landing_links resources-back">
+        <h2 class="centerheader resources" >{{languages.resources}}</h2>
+        <a href="#/search/?q=flora,herb,plant" class="link col-xs-6 col-sm-4 col-md-4 flora">{{languages.plants}}</a>
+        <a href="#/search/?q=fauna,animal" class="link col-xs-6 col-sm-4 col-md-4 fauna">{{languages.animals}}</a>
+        <a href="#/search/?q=ecosystems" class="link col-xs-12 col-sm-4 col-md-4 ecosystems">{{languages.ecosystems}}</a>
+    </div>
+
+    <div class="inner">
+        <!--Teachers pathways-->
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <h3>{{languages.teacher_pathways}}</h3>
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <a href="http://education.natural-europe.eu/natural_europe/exhibits/show/Pathway-slug-391/to-begin-with" target="_blank"><img src="assets/images/homepage/heraklion.jpg"></a>
+
+                <h2>{{languages.my_city_heraklion_title}}</h2>
+
+                <p style="font-size:13px;">{{languages.my_city_heraklion_description}}</p>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <a href="http://education.natural-europe.eu/natural_europe/exhibits/show/aromatic-herbs/to-begin-with" target="_blank"><img src="assets/images/homepage/herbs.jpeg"></a>
+
+                <h2>{{languages.aromatic_herbs_title}}</h2>
+
+                <p style="font-size:13px;">{{languages.aromatic_herbs_description}}</p>
+            </div>
+        </div>
+
+        <!--HIGHLIGHTED-->
+        <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:50px;">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="moduletable slidermodule">
+                    <h3>{{languages.highlighted_pathways_from_other_european_museums}}</h3>
+                    <div class="articles_mod_list">
+                        <a href="http://greenlearningnetwork.com/natural-europe/educational/index.html" target="_blank"><img src="assets/images/ne_logo.png"></a>
+
+                        <p><a href="http://greenlearningnetwork.com/natural-europe/educational/index.html" target="_blank"><b>Here</b></a> you can search and browse the online Natural Europe educational collections! Explore educational activities that take place within the Natural History museums or outside in the field, designed by the Natural History Museums' educators and by science teachers.</p>
+                    </div>
+                </div>
+            </div><!--LATEST PATHWAYS-->
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                    <h3>{{languages.latest_pathways}}</h3>
+
+                    <div>
+                        <!-- id="FeaturedItemsSlider" add it for dynamic behavior -->
+                        <!-- page 1 -->
+
+                        <div class="slider_page" >
+                            <ul>
+                                <li class="clearfix slider_page_listitem">
+
+                                        <h2><a href="http://education.natural-europe.eu/natural_europe/exhibits/show/THORNS-THORNS-EVERYWHERE-THORN/to-begin-with?nhm=NHMC">{{languages.adaptation_title}}</a></h2>
+
+                                        <p>{{languages.adaptation_description}}</p>
+
+                                        <div class="info clearfix">
+                                            <div class="floatleft">
+                                                <label>Keywords:</label> <a href="#/search/?q=flora">flora,</a> <a href="#/search/?q=fauna">fauna,</a> <a href="l#/search/?q=Greece">Greece,</a></a> <a href="#/search/?q=Mediterranean">Mediterranean,</a><a href="#/search/?q=behaviour">behaviour</a>
+                                            </div>
+                                        </div>
+
+                                </li>
+
+                                <li class="clearfix slider_page_listitem ">
+
+                                        <h2><a href="http://education.natural-europe.eu/natural_europe/exhibits/show/regional_ecosystems/to-begin-with?nhm=NHMC">{{languages.regional_ecosystems_title}}</a></h2>
+
+                                        <p>{{languages.regional_ecosystems_description}}</p>
+
+                                        <div class="info clearfix">
+                                            <div class="floatleft">
+                                                <label>Keywords:</label> <a href="#/search/?q=ecosystem">ecosystem,</a> <a href="#/search/?q=Mediterranean shrubland">Mediterranean shrubland</a>
+                                            </div>
+                                        </div>
+
+                                </li>
+
+                                <li class="clearfix slider_page_listitem ">
+
+                                        <h2><a href="http://education.natural-europe.eu/natural_europe/exhibits/show/nature/to-begin-with?nhm=NHMC">{{languages.nature_is_our_home_title}}</a></h2>
+
+                                        <p>{{languages.nature_is_our_home_description}}</p>
+
+                                        <div class="info clearfix">
+                                            <div class="floatleft">
+                                                <label>Keywords:</label> <a href="#/search/?q=ecosystem">ecosystem,</a> <a href="#/search/?q=flora">flora,</a> <a href="#/search/?q=pullination">pullination,</a>
+                                            </div>
+                                        </div>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

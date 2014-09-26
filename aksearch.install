@@ -1,0 +1,100 @@
+<?php
+/**
+* Implements hook_install().
+*/
+function aksearch_install() {
+node_types_rebuild();
+$types = node_type_get_types();
+// add the body field to the node type
+node_add_body_field($types['aksearch']);
+// Load the instance definition for our content type's body
+$body_instance = field_info_instance('node', 'body', 'aksearch');
+// Configure the body field
+$body_instance['type'] = 'text_summary_or_trimmed';
+// Save our changes to the body field instance.
+field_update_instance($body_instance);
+
+variable_set('comment_aksearch', 0);
+variable_set('node_options_aksearch', array('status'));
+
+}
+
+/**
+* Implements hook_uninstall().
+*/
+function aksearch_uninstall() {
+// Delete content that might have been created while this
+// module was enabled.
+$sql = 'SELECT nid FROM {node} n WHERE n.type = :type';
+$result = db_query($sql, array(':type' => 'aksearch'));
+$nids = array();
+	foreach ($result as $row) {
+	$nids[] = $row->nid;
+	}
+// Delete all the nodes at once
+node_delete_multiple($nids);
+
+$instances = field_info_instances('node', 'aksearch');
+	foreach ($instances as $instance_name => $instance) {
+	field_delete_instance($instance);
+	}
+}
+
+/**
+* Implements hook_enable().
+*/
+function aksearch_enable(){
+
+	 /*
+		  $node = new stdClass();
+		  $node->type = 'aksearch';			//custom content type 'aksearch'
+		  $node->title = 'Item';
+		  node_object_prepare($node);
+		  $node->body[LANGUAGE_NONE][0]['value']   = '';
+		  $node->body[LANGUAGE_NONE][0]['summary'] = '';
+		  $node->body[LANGUAGE_NONE][0]['format']  = 'full_html';	//full_html, php_code
+		  $node->language = LANGUAGE_NONE;
+		  node_save($node);
+		  variable_set('aksearch_ipage',$node->nid);
+	  */
+
+	  $node = new stdClass();
+	  $node->type = 'aksearch';			//custom content type 'aksearch'
+	  $node->title = 'Search';
+	  node_object_prepare($node);
+
+	  $node->body[LANGUAGE_NONE][0]['value']   = '';
+	  $node->body[LANGUAGE_NONE][0]['summary'] = '';
+	  $node->body[LANGUAGE_NONE][0]['format']  = 'full_html';	//full_html, php_code
+	  $node->language = LANGUAGE_NONE;
+	  node_save($node);
+	  variable_set('aksearch_spage',$node->nid);
+
+}
+
+
+
+/**
+ * Implements hook_schema().
+ */
+function aksearch_schema() {
+$schema['aksearch_conf'] = array(
+  'description' => 'Table for storing configuration for every aksearch page',
+  'fields' => array(
+    'nid' => array(
+      'description' => 'the nid of aksearch node',
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+    ),
+    'conf' => array(
+      'description' => 'configuration for this aksearch node',
+      'type' => 'text',
+      'size' => 'medium',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('nid'),
+);
+	return $schema;
+}
