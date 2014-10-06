@@ -23,7 +23,22 @@ function aksearch_menu() {
 			'type' => MENU_NORMAL_ITEM,
 			'file' => 'aksearch.admin.inc',
 	);
+	$items['akconf'] = array(
+			'page callback' => 'aknode_config',
+			'page arguments' => array(1),
+			'access callback' => TRUE,
+			'type' => MENU_CALLBACK,
+	);
 	return $items;
+}
+
+/**
+ * Menu callback for aksearch node configuration
+ */
+function aknode_config($n){
+	$result = db_query('SELECT conf FROM {aksearch_conf} WHERE nid = :nid LIMIT 1', array(':nid' => $n));
+	echo $result->fetchField();
+	drupal_exit();
 }
 
 /**

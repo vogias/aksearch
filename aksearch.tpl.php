@@ -12,7 +12,6 @@ $css = drupal_get_path('module', 'aksearch')."/default/css";
 $finder = drupal_get_path('module', 'aksearch')."/default/finder";
 $lib = drupal_get_path('module', 'aksearch')."/default/lib";
 $searchurl = url('node/'.variable_get('aksearch_spage'));
-$itemurl = url('node/'.variable_get('aksearch_ipage'));
 ?>
 <!-- search page -->
 
@@ -21,7 +20,7 @@ if(variable_get('ak_enable_jquery', '0'))
 {
 drupal_add_js('//code.jquery.com/jquery-1.11.0.min.js', 'external');
 }
-drupal_add_js('var drupalVariables = {"root":"'.$base_url.'/'.$root.'","searchurl":"'.$searchurl.'","itemurl":"'.$itemurl.'" , "nodeid":"' . $nif . '" }', 'inline');
+drupal_add_js('var drupalVariables = {"base":"'.$base_url.'","root":"'.$base_url.'/'.$root.'","nodeid":"' . $nif . '" }', 'inline');
 drupal_add_css('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300', array('group' => CSS_THEME,'preprocess' => FALSE, 'type'=>'external'));
 ?>
 

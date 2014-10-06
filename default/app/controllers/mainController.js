@@ -7,7 +7,8 @@
 listing.controller("mainController", function($rootScope, $scope, $http, $routeParams, $location, $modal, $log, sharedProperties){
 
 	//$scope.conf_file =  drupalVariables.root + '/config/conf.json';
-	$scope.conf_file =  drupalVariables.root + '/config?n=' + drupalVariables.nodeid;
+	//$scope.conf_file =  drupalVariables.root + '/config?n=' + drupalVariables.nodeid;
+	$scope.conf_file =  drupalVariables.base + '/akconf/' + drupalVariables.nodeid;
 	$scope.lang_path =  drupalVariables.root + '/config/lang/';
 
 	var mappings_file =  drupalVariables.root + '/config/facets_mappings.json';
