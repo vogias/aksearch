@@ -1,9 +1,17 @@
 jQuery(document).ready(function () {
 	
+	/*
+        check if jQuery is older than 1.6
+    */
 	var newJq = true;
-	if(parseFloat(jQuery.fn.jquery.substring(0,jQuery.fn.jquery.lastIndexOf("."))) < 1.6)
-		newJq = false;
-
+        var version = jQuery.fn.jquery;
+        version = version.substring(0,version.lastIndexOf("."));
+        version = version.split('.');
+	if(parseInt(version[0],10) <= 1) {
+            if(parseInt(version[1],10) <= 6)
+                newJq = false;
+    }
+    console.log(newJq);
 	//Insert buttons with jQuery
 
 	jQuery('label[for="edit-aksearch-facets"]').append('<div id="selectAllsets" class="facets"><button class="akbutton">Select all</button><button class="aktoggle">Toggle</button></div>');
@@ -20,31 +28,37 @@ jQuery(document).ready(function () {
 			});
 	}
 		//Set current selected node checkboxes
+        var selectednode = jQuery('select[name="ak_node_id"] option:selected').val();
 		jQuery.ajax({
 			type: 'GET', // Use the GET method.
-			url: ak_conf_url,
+			url: Drupal.settings.basePath + 'akconf/' + selectednode,
 			dataType: 'json',
-			success: checkAction,
-			data: { n:jQuery('select[name="ak_node_id"] option:selected').val() }
-			});
+			success: checkAction
+                    });
 
 		jQuery('select[name="ak_node_id"]').change(function(){
 			jQuery.ajax({
 			type: 'GET', // Use the GET method.
-			url: ak_conf_url,
+			url: Drupal.settings.basePath + 'akconf/' + jQuery(this).val() ,
 			dataType: 'json',
-			success: checkAction,
-			data: { n:jQuery(this).val() }
+			success: checkAction
 			});
 		});
 		
 		//select buttons
-		jQuery( ".akbutton" ).toggle(function() {
-			newJq ? jQuery('#edit-aksearch-'+ jQuery(this).parent().attr('class') +' input:checkbox').prop('checked',true) : jQuery('#edit-aksearch-'+ jQuery(this).parent().attr('class') +' input:checkbox').attr('checked','checked');
-			jQuery(this).html('Unselect all');
-			}, function() {
-			newJq ? jQuery('#edit-aksearch-'+ jQuery(this).parent().attr('class')  +' input:checkbox').prop('checked',false) : jQuery('#edit-aksearch-'+ jQuery(this).parent().attr('class')  +' input:checkbox').removeAttr('checked');
-			jQuery(this).html('Select all');
+		jQuery( ".akbutton" ).click(function() {
+                    
+	        var $this = jQuery(this);
+	        $this.toggleClass('active');
+	        if($this.hasClass('active')) {
+			newJq ? $this.closest('.form-item').find('input:checkbox').prop('checked',true) : $this.closest('.form-item').find('input:checkbox').attr('checked','checked');
+			$this.html('Unselect all');
+	        } else {
+	        newJq ? $this.closest('.form-item').find('input:checkbox').prop('checked',false) : $this.closest('.form-item').find('input:checkbox').removeAttr('checked');
+			$this.html('Select all');  
+	        }
+	        return false;
+			
 		});
 		//toggle buttons
 		jQuery(".aktoggle").click(function(){
