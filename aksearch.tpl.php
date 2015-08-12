@@ -47,8 +47,8 @@ drupal_add_js($app.'/controllers/view_item/viewItemController.js',array('type'=>
 </script>
 -->
 <div class="field-type-text-with-summary">
-<?php print $cont['und']['0']['safe_summary']; ?>
-<?php print $cont['und']['0']['safe_value']; ?>
+<?php print isset($cont['und']['0']['safe_summary']) ? $cont['und']['0']['safe_summary'] : ''; ?>
+<?php print isset($cont['und']['0']['safe_value']) ? $cont['und']['0']['safe_value'] : ''; ?>
 </div>
  <div id="akListing" ng-app="akListing" ng-controller="mainController" ng-init="init_finder('akif','educational');"  class="col-xs-12 col-sm-12 col-md-12"  ng-cloak>
  		<!-- Language
