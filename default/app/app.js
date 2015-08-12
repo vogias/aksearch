@@ -5,8 +5,18 @@
 
 
 /*Define ng-app module*/
-var listing = angular.module('akListing',[ 'ngRoute' , 'ui.bootstrap']);
+var listing = angular.module('akListing',[ 'ngRoute' , 'ui.bootstrap', 'djds4rce.angular-socialshare']);
 /* var listing = angular.module('akListing',['ngRoute','mainController','listingController']); */
+
+/*listing.run([
+      '$rootScope', function ($rootScope) {
+          $rootScope.facebookAppId = '273143156120711'; // set your facebook app id here
+      }
+  ]);
+*/
+angular.module('akListing').run(function($FB){
+  $FB.init('1048712461820768');
+});
 
 /* $locationProvider Configuration */
 /*
