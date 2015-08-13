@@ -49,6 +49,7 @@ listing.controller("mainController", function($rootScope, $scope, $http, $routeP
 		/* $scope.selectedLanguage = data.selectedLanguage; */
 		$scope.maxTextLength = data.maxTextLength;
 		$scope.limit_facets_number = data.limit_facets_number;
+                $scope.curr_url = $location.absUrl();
 		$scope.findElements(true);
 
     })
