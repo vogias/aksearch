@@ -15,7 +15,7 @@ var listing = angular.module('akListing',[ 'ngRoute' , 'ui.bootstrap', 'djds4rce
   ]);
 */
 angular.module('akListing').run(function($FB){
-  $FB.init('1048712461820768');
+  $FB.init('754584587985536');
 });
 
 /* $locationProvider Configuration */
