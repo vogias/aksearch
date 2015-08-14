@@ -54,7 +54,7 @@ listing.controller("viewItemController", function($rootScope, $scope, $http, $lo
 		.success(function(data) {
 			//parse array and create an JS Object Array
 			//every item is a JSON
-                        $scope.curr_url = $location.absUrl();
+            $scope.curr_url = $location.absUrl();
 			console.log(data.results[0]);
 			var thisJson = data.results[0];
 
