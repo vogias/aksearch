@@ -2,7 +2,8 @@
   border: none;
   visibility: visible;
   width: auto;
-  height: 22px;
+/*  height: 22px;*/
+  height: 35px;
   background: transparent;
   overflow: hidden;
   -webkit-text-size-adjust: none;
@@ -33,10 +34,12 @@
 .facebookShare .facebookButton {
   color: #3b5998;
   text-decoration: none;
-  font-size: 11px;
+/*  font-size: 11px;*/
+  font-size: 13px;
   text-align: left;
   display: inline-block;
-  width: 55px;
+/*  width: 55px;*/
+  width: 75px;
 }
 .facebookShare .facebookButton .pluginButton {
   background: #4c69ba;
@@ -52,8 +55,10 @@
   color: #fff;
   cursor: pointer;
   font-weight: bold;
-  height: 20px;
-  line-height: 20px;
+/*  height: 20px;*/
+  height: 27px;
+/*  line-height: 20px;*/
+  line-height: 25px;
   padding: 0;
   text-shadow: 0 -1px 0 #354c8c;
   white-space: nowrap;
@@ -79,10 +84,12 @@
 }
 .facebookShare .facebookButton .pluginButton button .pluginButtonIcon {
   height: 14px;
-  left: 0;
+/*  left: 0;*/
+  left: 2px;
   margin: 0 4px 0 4px;
   position: relative;
-  top: 3px;
+/*  top: 3px;*/
+  top: 6px;
   vertical-align: top;
   width: 14px;
 }
@@ -102,7 +109,8 @@
   _overflow: hidden;
 }
 .facebookShare .facebookButton .pluginButton .pluginButtonLabel {
-  padding: 0 5px 0 0;
+/*  padding: 0 5px 0 0;*/
+  padding: 0 5px 0 7px;
   position: relative;
   vertical-align: top;
 }
@@ -116,12 +124,15 @@
   border-radius: 3px;
   color: #6a7180;
   display: inline-block;
-  font-size: 11px;
+/*  font-size: 11px;*/
+  font-size: 13px;
+  font-weight: normal;
   height: auto;
   line-height: 18px;
   margin-left: 6px;
   min-width: 15px;
-  padding: 0 3px;
+/*  padding: 0 3px;*/
+  padding: 4px 5px;
   text-align: center;
   white-space: nowrap;
 }
@@ -146,12 +157,14 @@
   border-width: 4px 5px 4px 0;
   display: block;
   position: relative;
-  top: 1px;
+/*  top: 1px;*/
+  top: -2px;
 }
 .facebookShare .facebookCount .pluginCountButtonNub i {
   border-right-color: #fff;
   left: 2px;
-  top: -7px;
+/*  top: -7px;*/
+  top: -10px;
 }
 @-moz-document url-prefix() {
   .facebookShare .facebookButton .pluginButton button .pluginButtonIcon {

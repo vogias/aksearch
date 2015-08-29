@@ -40,7 +40,7 @@ drupal_add_js($app.'/controllers/search/paginationController.js',array('type'=>'
 drupal_add_js($app.'/controllers/search/facetsController.js',array('type'=>'file','scope'=>'footer','weight'=>106));
 drupal_add_js($app.'/controllers/view_item/viewItemController.js',array('type'=>'file','scope'=>'footer','weight'=>107));
 drupal_add_js($lib.'/angular-socialshare/angular-socialshare.min.js',array('type'=>'file','scope'=>'footer','weight'=>109));
-drupal_add_css($lib.'/angular-socialshare/angular-socialshare.min.css',array('type'=>'file','scope'=>'footer','weight'=>110));
+drupal_add_css($lib.'/angular-socialshare/angular-socialshare.css',array('type'=>'file','scope'=>'footer','weight'=>110));
 ?>
 <script src="http://platform.twitter.com/widgets.js"></script>
 <!--
