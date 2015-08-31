@@ -80,7 +80,7 @@ var socialGetter = (function() {
 
 	return {
 		getTwitterCount: function(url, callbackName) {
-			injectScript('http://urls.api.twitter.com/1/urls/count.json?url=' + url + '&callback=' + callbackName);
+			injectScript('http://urls.api.twitter.com/1/urls/count.json?url=' + url.replace(/#/g,'%23') + '&callback=' + callbackName);
 		}
 	};
 })();
@@ -93,7 +93,8 @@ function twitterCallback(result) {
     function tweetPopup(el) {
     var height = ((window.outerHeight) /2) - 150;
     var width = ((window.outerWidth)/2)  - 250;
-    window.open('http://twitter.com/intent/tweet?text='+jQuery(el).attr('data-text')+'&url='+jQuery(el).attr('data-url'), 'twitter', 'height=300,width=500,resizable=1,scrollbars=yes,top='+ height +',left='+width);
+    //window.open('http://twitter.com/intent/tweet?text='+jQuery(el).attr('data-text')+'&url='+jQuery(el).attr('data-url').replace(/#/,'%23'), 'twitter', 'height=300,width=500,resizable=1,scrollbars=yes,top='+ height +',left='+width);
+    window.open('http://twitter.com/intent/tweet?text='+jQuery(el).attr('data-text')+ ' ' + jQuery(el).attr('data-url').replace(/#/,'%23'), 'twitter', 'height=300,width=500,resizable=1,scrollbars=yes,top='+ height +',left='+width);
     return false;
 }
 </script>

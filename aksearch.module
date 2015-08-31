@@ -111,11 +111,11 @@ return array(
 /**
 * Implements hook_html_head_alter()
 */
-/*function aksearch_html_head_alter(&$head_elements) {
+function aksearch_html_head_alter(&$head_elements) {
   foreach ($head_elements as $key => $element) {
     if (isset($element ['#attributes']['rel']) && $element ['#attributes']['rel'] == 'canonical') {
       // remove canonical URL.
       unset($head_elements[$key]); 
     }
   }
-}*/
+}

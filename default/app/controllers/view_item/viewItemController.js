@@ -116,7 +116,8 @@ listing.controller("viewItemController", function($rootScope, $scope, $http, $lo
 			//URL
 			if(thisJson.expressions[0].manifestations[0].items[0].url != undefined) {
 				$scope.item_resource_url = thisJson.expressions[0].manifestations[0].items[0].url;
-                                socialGetter.getTwitterCount($scope.item_resource_url, 'twitterCallback');
+                                //socialGetter.getTwitterCount($scope.item_resource_url, 'twitterCallback');
+                                socialGetter.getTwitterCount($scope.curr_url, 'twitterCallback');
 			}
 
 			//RIGHTS
