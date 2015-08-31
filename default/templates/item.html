@@ -43,8 +43,16 @@
         </div>
     </article>
     <!-- SOCIAL SHARE -->
-    <a facebook-feed-share class="facebookShare" data-name="{{item_title}}" data-url="{{item_resource_url}}" data-shares='shares' data-description="{{item_description}}" data-picture="http://greenet.spg.latramis.com/sites/greenet.spg.latramis.com/files/header_bg.jpg">{{ shares }}</a>
-    <br />
-    <a twitter data-count='horizontal' data-url="{{item_resource_url}}" data-via='' data-size="large" data-text="{{item_title + '-' + item_description | cut:true:65:'...'}}" ></a>
+    <ul class="socialbuttons">
+        <li>
+            <a facebook-feed-share class="facebookShare facebook-big" data-name="{{item_title}}" data-url="{{item_resource_url}}" data-shares='shares' data-description="{{item_description}}" data-picture="http://greenet.spg.latramis.com/sites/greenet.spg.latramis.com/files/header_bg.jpg">{{ shares }}</a>
+        </li>
+        <li>
+            <a class="twitter-big" onclick="tweetPopup(this);" href="javascript:void(0);" data-text="{{item_title + '-' + item_description | cut:true:65:'...'}}" data-url="{{item_resource_url}}">Tweet <span id="twitterCount"></span></a>
+        </li>
+    </ul>
+    
+    
+    
 
 </div>
