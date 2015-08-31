@@ -12,9 +12,17 @@ $css = drupal_get_path('module', 'aksearch')."/default/css";
 $finder = drupal_get_path('module', 'aksearch')."/default/finder";
 $lib = drupal_get_path('module', 'aksearch')."/default/lib";
 $searchurl = url('node/'.variable_get('aksearch_spage'));
+//identify with a meta tag if viewing aaksearch type node in order to remove canonical meta tag
+$element = array(
+  '#tag' => 'meta', // The #tag is the html tag 
+  '#attributes' => array( // Set up an array of attributes inside the tag
+    'name' => 'abstract', 
+    'content' => 'aksearch',
+  ),
+);
+drupal_add_html_head($element, 'meta_aksearch_page');
 ?>
 <!-- search page -->
-
 <?php
 if(variable_get('ak_enable_jquery', '0'))
 {
@@ -23,7 +31,6 @@ drupal_add_js('//code.jquery.com/jquery-1.11.0.min.js', 'external');
 drupal_add_js('var drupalVariables = {"base":"'.$base_url.'","root":"'.$base_url.'/'.$root.'","nodeid":"' . $nif . '"}', 'inline');
 drupal_add_css('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300', array('group' => CSS_THEME,'preprocess' => FALSE, 'type'=>'external'));
 ?>
-
 <link rel="stylesheet/less" type="text/css" href="<?php echo $base_url.'/'.$css.'/style.less'; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo $base_url.'/'.$css.'/bootstrap.css'; ?>" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700&subset=latin,greek-ext,latin-ext' rel='stylesheet' type='text/css'>
@@ -68,7 +75,7 @@ drupal_add_css($lib.'/angular-socialshare/socialbuttons.css',array('type'=>'file
 
 </div>
 <script type="text/javascript">
-    // Tiny object for getting counts
+// Tiny object for getting counts
 var socialGetter = (function() {
 	/* just a utility to do the script injection */
 	function injectScript(url) {
@@ -84,17 +91,14 @@ var socialGetter = (function() {
 		}
 	};
 })();
-
 // Callbacks to do something with the result
 function twitterCallback(result) {
 	jQuery('#twitterCount').text(result.count);
 }
-
-    function tweetPopup(el) {
+function tweetPopup(el) {
     var height = ((window.outerHeight) /2) - 150;
     var width = ((window.outerWidth)/2)  - 250;
-    //window.open('http://twitter.com/intent/tweet?text='+jQuery(el).attr('data-text')+'&url='+jQuery(el).attr('data-url').replace(/#/,'%23'), 'twitter', 'height=300,width=500,resizable=1,scrollbars=yes,top='+ height +',left='+width);
-    window.open('http://twitter.com/intent/tweet?text='+jQuery(el).attr('data-text')+ ' ' + jQuery(el).attr('data-url').replace(/#/,'%23'), 'twitter', 'height=300,width=500,resizable=1,scrollbars=yes,top='+ height +',left='+width);
+    window.open('http://twitter.com/intent/tweet?text='+jQuery(el).attr('data-text')+'&url='+jQuery(el).attr('data-url').replace(/#/,'%23') + '&via=' + jQuery(el).attr('data-via'), 'twitter', 'height=300,width=500,resizable=1,scrollbars=yes,top='+ height +',left='+width);
     return false;
 }
 </script>
