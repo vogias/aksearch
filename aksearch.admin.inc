@@ -10,10 +10,10 @@
 * @see system_settings_form().
 */
 function aksearch_admin_settings() {
-	global $base_url;
-	$s = $base_url . '/' . drupal_get_path('module', 'aksearch') .'/default/config/';
+//global $base_url;
+//$s = $base_url . '/' . drupal_get_path('module', 'aksearch') .'/default/config/';
 //drupal_add_js('//code.jquery.com/jquery-1.11.0.min.js', 'external');
-drupal_add_js('var ak_conf_url = "'. $s .'";', 'inline');
+//drupal_add_js('var ak_conf_url = "'. $s .'";', 'inline');
 drupal_add_js(drupal_get_path('module', 'aksearch') .'/aksearch.js');
 drupal_add_css(drupal_get_path('module', 'aksearch') .'/aksearch.css');
 
@@ -47,21 +47,44 @@ $terms = drupal_json_decode($result->data);
 $terms = $terms['facets']['set']['terms'];
 //if there is human name, save human name as value instead of machine name
 foreach ($terms as $term) {
-	if(array_key_exists($term['term'], $mapArr))
+	if(array_key_exists($term['term'], $mapArr)) {
 	$options[$term['term']] = $mapArr[$term['term']] . '(' . $term['count'] . ')';
-	else
+        } else {
 	$options[$term['term']] = $term['term']. '(' . $term['count'] . ')';
+        }
 }
-$form['ak_enable_jquery'] = array(
+
+$form['general_settings'] = array(
+  '#type' => 'fieldset',
+  '#title' => t('General Settings'),
+  '#weight' => 1,
+  '#collapsible' => TRUE,
+  '#collapsed' => FALSE,
+);
+$form['general_settings']['ak_enable_jquery'] = array(
 		'#type' => 'select',
 		'#title' => t('Include jQuery in search pages'),
 		'#options' => array('0' => 'No' , '1' => 'Yes' ),
 		'#default_value' => variable_get('ak_enable_jquery', '0'),
 		'#description' => t('If already using jQuery version >= 1.7 set this option to "No"'),
 );
+$form['general_settings']['ak_enable_social'] = array(
+		'#type' => 'select',
+		'#title' => t('Enable social sharing'),
+		'#options' => array('0' => 'No' , '1' => 'Yes' ),
+		'#default_value' => variable_get('ak_enable_social', '0'),
+		'#description' => t('Allow users to share items on facebook and twitter'),
+);
 
+$form['node_settings'] = array(
+  '#type' => 'fieldset',
+  '#title' => t('Per node Settings'),
+  '#weight' => 2,
+  '#collapsible' => TRUE,
+  '#collapsed' => FALSE,
+);
 //building the admin form from previous created arrays nids[],options[]
-$form['ak_node_id'] = array(
+$form['node_settings']['ak_node_id'] = array(
 		'#type' => 'select',
 		'#title' => t('Select the node for which you want to configure'),
 		'#options' => $nids,
@@ -69,7 +92,7 @@ $form['ak_node_id'] = array(
 		'#description' => t('Select the node id to save the configuration.'),
 );
 
-$form['aksearch_facets'] = array(
+$form['node_settings']['aksearch_facets'] = array(
 '#type' => 'checkboxes',
 '#title' => t('Users may search using these facets collections'),
 '#options' => $options,
@@ -77,7 +100,7 @@ $form['aksearch_facets'] = array(
 '#description' => t('Please select the desired facets collections'),
 );
 //hardcoded values as options(no json config file)
-$form['aksearch_facets_f'] = array(
+$form['node_settings']['aksearch_facets_f'] = array(
 		'#type' => 'checkboxes',
 		'#title' => t('Users may search using these facets'),
 		'#options' => array('set' => 'set', 'language' => 'language' , 'contexts' => 'contexts' , 'learningResourceTypes' => 'learningResourceTypes' , 'endUserRoles' => 'endUserRoles' ),
@@ -95,12 +118,12 @@ function aksearch_admin_settings_submit($form, $form_state) {
 // Loop through each of the checkboxes shown on the form.
 foreach ($form_state['values']['aksearch_facets'] as $key => $value) {
 		if($value){
-			$enabled[] = $key;
+                    $enabled[] = $key;
 		}
 	} // End foreach loop.
 foreach ($form_state['values']['aksearch_facets_f'] as $key => $value) {
 		if($value){
-			$enabled2[] = $key;
+                    $enabled2[] = $key;
 		}
 	} // End foreach loop.
 
@@ -116,7 +139,7 @@ foreach ($form_state['values']['aksearch_facets_f'] as $key => $value) {
 
 	$num_updated = db_update('aksearch_conf')
 	->fields(array(
-			'conf' => $newData,
+            'conf' => $newData,
 	))
 	->condition('nid', $form_state['values']['ak_node_id'], '=')
 	->execute();
