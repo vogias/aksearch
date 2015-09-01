@@ -72,26 +72,26 @@ listing.config(['$routeProvider',
 			// - (AKIF)
 			//educational resources
 			when('/search/', {
-				templateUrl: drupalVariables.root + '/templates/search.html',
+				templateUrl: Drupal.settings.aksearch.root + '/templates/search.html',
 				controller: 'listingController'
 			}).
 			when('/search/:search_param', {
-				templateUrl: drupalVariables.root + '/templates/search.html',
+				templateUrl: Drupal.settings.aksearch.root + '/templates/search.html',
 				controller: 'listingController'
 			}).
 			//view-item
 			when('/item', {
-				templateUrl: drupalVariables.root + '/templates/item.html',
+				templateUrl: Drupal.settings.aksearch.root + '/templates/item.html',
 				controller: 'viewItemController'
 			}).
 			when('/item/:itemId', {
-				templateUrl: drupalVariables.root + '/templates/item.html',
+				templateUrl: Drupal.settings.aksearch.root + '/templates/item.html',
 				controller: 'viewItemController'
 			}).
 			//general
 			when('/', {
-/* 				templateUrl: drupalVariables.root + '/templates/main.html', */
-				templateUrl: drupalVariables.root + '/templates/search.html',
+/* 				templateUrl: Drupal.settings.aksearch.root + '/templates/main.html', */
+				templateUrl: Drupal.settings.aksearch.root + '/templates/search.html',
 				controller: 'mainController'
 			}).
 			otherwise({

@@ -6,12 +6,12 @@
 /*Define mainController controller in 'app' */
 listing.controller("mainController", function($rootScope, $scope, $http, $routeParams, $location, $modal, $log, sharedProperties){
 
-	//$scope.conf_file =  drupalVariables.root + '/config/conf.json';
-	//$scope.conf_file =  drupalVariables.root + '/config?n=' + drupalVariables.nodeid;
-	$scope.conf_file =  drupalVariables.base + '/akconf/' + drupalVariables.nodeid;
-	$scope.lang_path =  drupalVariables.root + '/config/lang/';
+	//$scope.conf_file =  Drupal.settings.aksearch.root + '/config/conf.json';
+	//$scope.conf_file =  Drupal.settings.aksearch.root + '/config?n=' + Drupal.settings.aksearch.nodeid;
+	$scope.conf_file =  Drupal.settings.aksearch.base + '/akconf/' + Drupal.settings.aksearch.nodeid;
+	$scope.lang_path =  Drupal.settings.aksearch.root + '/config/lang/';
 
-	var mappings_file =  drupalVariables.root + '/config/facets_mappings.json';
+	var mappings_file =  Drupal.settings.aksearch.root + '/config/facets_mappings.json';
 
 
 	//variable to show and hide elements in ui
@@ -155,7 +155,7 @@ listing.controller("mainController", function($rootScope, $scope, $http, $routeP
 			case 'educational' :
 				//$scope.facets = ['language','learningResourceTypes','contexts','endUserRoles']; /* 'set' */
 				//$scope.limit_facets = {"set":["oeellinogermaniki", "aglrmiksike", "edumnhn"]}; //"set":["aglrnedunhmc"]
-				mappings_file = drupalVariables.root + '/config/educational_facets_mappings.json';
+				mappings_file = Drupal.settings.aksearch.root + '/config/educational_facets_mappings.json';
 				break;
 			default:
 			    $scope.facets = ["set", "language", "contexts", 'learningResourceTypes'];
