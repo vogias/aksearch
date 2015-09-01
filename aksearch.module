@@ -123,3 +123,28 @@ function aksearch_html_head_alter(&$head_elements) {
     unset($head_elements['meta_aksearch_page']);
   }
 }
+
+/**
+* Implements hook_library()
+*/
+function aksearch_library() {
+  // Library One.
+  $libraries ['aksearch'] = array(
+    'title' => 'Ak search js library',
+    'website' => '',
+    'version' => '',
+    'js' => array(
+      drupal_get_path('module', 'aksearch') . '/default/lib/angular.min.js' => array('scope'=>'footer'),
+      drupal_get_path('module', 'aksearch') . '/default/lib/angular-route.min.js' => array('scope'=>'footer'),
+      drupal_get_path('module', 'aksearch') . '/default/lib/less-1.5.0.min.js' => array('scope'=>'footer'),
+      drupal_get_path('module', 'aksearch') . '/default/lib/ui-bootstrap-0.10.0.min.js' => array('scope'=>'footer'),
+      drupal_get_path('module', 'aksearch') . '/default/app/app.js' => array('scope'=>'footer'),
+      drupal_get_path('module', 'aksearch') . '/default/app/controllers/mainController.js' => array('scope'=>'footer'),
+      drupal_get_path('module', 'aksearch') . '/default/app/controllers/search/listingController.js' => array('scope'=>'footer'),
+      drupal_get_path('module', 'aksearch') . '/default/app/controllers/search/paginationController.js' => array('scope'=>'footer'),
+      drupal_get_path('module', 'aksearch') . '/default/app/controllers/search/facetsController.js' => array('scope'=>'footer'),
+      drupal_get_path('module', 'aksearch') . '/default/app/controllers/view_item/viewItemController.js' => array('scope'=>'footer'),
+    )
+  );
+  return $libraries;
+}
