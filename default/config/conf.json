@@ -5,11 +5,7 @@
   "enablePaginationBottom": true, 
   "enablePaginationTop": true, 
   "facets": [
-    "set", 
-    "language", 
-    "contexts", 
-    "learningResourceTypes", 
-    "endUserRoles"
+    "set"
   ], 
   "limitPagination": 10, 
   "limit_facets": {
