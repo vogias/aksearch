@@ -28,7 +28,7 @@ foreach ($result as $row) {
 	
 reset($nids);
 
-$facets_url = 'http://api.greenlearningnetwork.com/search-api/v1/akif/?q=*&facets=set&facet_size=100';
+$facets_url = 'https://services.oer.geant.org/search/v1/akif/?q=*&facets=set&facet_size=100';
 $result = drupal_http_request($facets_url);
 //human and nachine names json file
 $mappings = drupal_get_path('module','aksearch').'/default/config/facets_mappings.json';

@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://api.greenlearningnetwork.com/search-api/v1/", 
+  "baseUrl": "https://services.oer.geant.org/search/v1/", 
   "enableFacets": true, 
   "enableLoadMore": true, 
   "enablePaginationBottom": true, 

@@ -14,12 +14,12 @@ listing.controller("viewItemController", function($rootScope, $scope, $http, $lo
 	language_mapping['en'] = "English";
 
 	/*AKIF URL*/
-	$scope.akif = 'http://api.greenlearningnetwork.com/search-api/v1/akif/';
+	$scope.akif = 'https://services.oer.geant.org/search/v1/akif/';
 	//$scope.item_resource_id = '';
 	$scope.item_resource_url = '';
 	$scope.user_id = 23;
-	$scope.domain = 'http://greenlearningnetwork.org';
-	$scope.ip = '83.212.100.142';
+	$scope.domain = 'https://services.oer.geant.org/';
+	$scope.ip = '83.212.114.48';
 
 
 	$scope.item_number_of_visitors = 0;
