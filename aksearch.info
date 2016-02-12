@@ -1,6 +1,6 @@
-name = AK Search Tool
-description = "Search using Agro Know search engine"
-package = Agro Know
+name = eduOER Search Tool
+description = "Search using eduOER search engine"
+package = eduOER
 core = 7.x
 dependencies[] = jquery_update
 files[] = aksearch.install

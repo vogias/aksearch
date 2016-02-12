@@ -79,7 +79,7 @@ function aksearch_enable(){
  */
 function aksearch_schema() {
 $schema['aksearch_conf'] = array(
-  'description' => 'Table for storing configuration for every aksearch page',
+  'description' => 'Table for storing configuration for every eduOER Search page',
   'fields' => array(
     'nid' => array(
       'description' => 'the nid of aksearch node',

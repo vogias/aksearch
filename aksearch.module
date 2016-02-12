@@ -5,8 +5,8 @@
  */
 function aksearch_menu() {
 	$items['admin/config/aksearch'] = array(
-			'title' => 'Ak search configuration',
-			'description' => 'Specify options for ak search module.',
+			'title' => 'eduOER Search configuration',
+			'description' => 'Specify options for eduOER Search module.',
 			'position' => 'right',
 			'weight' => -5,
 			'page callback' => 'system_admin_menu_block_page',
@@ -15,8 +15,8 @@ function aksearch_menu() {
 			'file path' => drupal_get_path('module', 'system'),
 	);
 	$items['admin/config/aksearch/settings'] = array(
-			'title' => 'Ak search settings',
-			'description' => 'Change how ak search behaves.',
+			'title' => 'eduOER Search settings',
+			'description' => 'Change how eduOER Search behaves.',
 			'page callback' => 'drupal_get_form',
 			'page arguments' => array('aksearch_admin_settings'),
 			'access arguments' => array('administer site configuration'),
@@ -47,7 +47,7 @@ function aknode_config($n){
 function aksearch_node_info() {
 return array(
 	'aksearch' => array(
-	'name' => t('Ak search type'),
+	'name' => t('eduOER search type'),
 	'base' => 'aksearch',
 	'description' => t('Use this content type to create a node used to search.'),
 	'has_title' => TRUE,

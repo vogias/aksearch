@@ -1,7 +1,7 @@
 <?php
 /**
 * @file
-* Administration page callbacks for the aksearch module.
+* Administration page callbacks for the eduoer module.
 */
 /**
 * Form builder. Configure aksearch.
