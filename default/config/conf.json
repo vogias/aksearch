@@ -14,8 +14,8 @@
   "limitPagination": 10, 
   "limit_facets": {
     "set": [
-      "aglrmiksike", 
-      "oeellinogermaniki"
+      "CAMPUSDOMAR", 
+      "TNC"
     ]
   }, 
   "limit_facets_number": 20, 
