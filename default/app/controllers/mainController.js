@@ -72,7 +72,7 @@ listing
 										// console.log(err);
 										/*-----------------------------------DEFAULT FINDER SETTINGS-----------------------------------*/
 										// API URL
-										$scope.api_path = 'https://services.oer.geant.org/search/v1/';
+										$scope.api_path = 'http://172.17.0.1:8080/agro-search/v1/';
 										/*
 										 * $scope.api_path =
 										 * 'http://212.189.145.245/search-api/v1/';
@@ -157,10 +157,10 @@ listing
 
 					$scope.app_init = function(language) {
 						$rootScope.languages = {};
-
+						
 						language !== undefined ? $scope.selectedLanguage = language
 								: $scope.selectedLanguage = 'en';
-						console.log($scope.selectedLanguage, language);
+						
 
 						/* $scope.selectedLanguage = 'en'; */
 						$scope.lang_file = $scope.selectedLanguage + '.json';
@@ -232,6 +232,7 @@ listing
 								.get(mappings_file)
 								.success(
 										function(data) {
+											
 											for (i in data) { // i =
 																// providers,
 																// languages,
@@ -274,7 +275,6 @@ listing
 						} else {
 							alert('Type something to search!!');
 						}
-						console.log("Query URL:" + $scope.api_path );
 					};
 
 					/*

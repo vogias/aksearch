@@ -1,11 +1,15 @@
 {
-  "baseUrl": "https://services.oer.geant.org/search/v1/", 
+  "baseUrl": "http://172.17.0.1:8080/agro-search/v1/", 
   "enableFacets": true, 
   "enableLoadMore": true, 
   "enablePaginationBottom": true, 
   "enablePaginationTop": true, 
   "facets": [
-    "set"
+    "set", 
+    "language", 
+    "contexts", 
+    "learningResourceTypes", 
+    "endUserRoles"
   ], 
   "limitPagination": 10, 
   "limit_facets": {
