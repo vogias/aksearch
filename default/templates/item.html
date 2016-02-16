@@ -15,10 +15,10 @@
 	</form>
 
 
-	<div align="center">
+	<!-- <div align="center">
 		<a href="{{item_resource_url}}" target="_blank"><img alt=""
 			src="{{thumbnail}}" height="200" width="200"></a>
-	</div>
+	</div> -->
 	<article id="main_content" class="col-xs-12 col-sm-12 col-md-12 ">
 
 
@@ -76,9 +76,11 @@
 
 
 
-		<!--<div ng-show="item_icon != undefined" class="hidden-xs col-sm-3 col-md-3">
-            <a href="{{item_resource_url}}" target="_blank"><img class="item_thumb" src="assets/images/{{item_icon}}"></a>
-        </div>-->
+		<div ng-show="item_icon != undefined"
+			class="hidden-xs col-sm-3 col-md-3">
+			<a href="{{item_resource_url}}" target="_blank"><img
+				class="item_thumb" src="{{thumbnail}}"></a>
+		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
 			<a href="{{item_resource_url}}" class="btn btn-sm btn-default"
