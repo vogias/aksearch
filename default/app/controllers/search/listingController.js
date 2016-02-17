@@ -36,7 +36,7 @@ listing
 
 							// URL facets
 							var flg = true; // needed for clearing the
-											// activeFacets at first time
+							// activeFacets at first time
 							// -check url
 							for (i in $scope.facets) {
 
@@ -181,10 +181,9 @@ listing
 
 					}
 
-					
 					// search() works with PAGINATION. SERVES CONTENT PER PAGE
 					$scope.search = function(query) {
-						
+
 						$http
 								.get(query)
 								.success(
@@ -211,7 +210,7 @@ listing
 
 											// Print snippets
 											$scope.results.length = 0;// clear
-																		// results
+											// results
 											angular
 													.forEach(
 															data.results,
@@ -281,6 +280,7 @@ listing
 																		.getSnippet(
 																				result,
 																				$scope.snippetElements);
+
 																if (json != null) {
 																	$scope.results
 																			.push(json);
@@ -310,151 +310,39 @@ listing
 					 * want to show in listing (i.e. title, description...)
 					 */
 					$scope.getSnippet = function(thisJson, snippet_elements) {
-						var temp = "";
-						var keys = [];
-						for ( var k in thisJson.languageBlocks)
-							keys.push(k);
-						// console.log(thisJson);
+						
+//						var keys = [];
+//						for ( var k in thisJson.languageBlocks)
+//							keys.push(k);
+//						
+						var record = {};
 
-						/*
-						 * In this functions we create the snippet for the
-						 * specific language. In case we don't get the element
-						 * in the language we already have selected we will
-						 * change it to 'en' in order to avoid empty snippets.
-						 * We reject records that doesn't have title at least in
-						 * English
-						 */
+						$.each(thisJson.languageBlocks, function(key, val) {
 
-						if (thisJson.languageBlocks['en'] != undefined
-								&& thisJson.languageBlocks['en'].title != undefined)
-						/*
-						 * if(thisJson.languageBlocks[$scope.selectedLanguage]!=undefined &&
-						 * thisJson.languageBlocks[$scope.selectedLanguage].title!=undefined)
-						 */
-						{
-							var equals = "";
-							for (index in snippet_elements) {
-								if (thisJson.languageBlocks[$scope.selectedLanguage]
-										&& snippet_elements[index] in thisJson.languageBlocks[$scope.selectedLanguage]) {
-									/* Element in snippet that IS NOT AN ARRAY */
-									if (thisJson.languageBlocks[$scope.selectedLanguage][snippet_elements[index]] != null
-											&& !(thisJson.languageBlocks[$scope.selectedLanguage][snippet_elements[index]] instanceof Array)) {
-										if (index != 0) {
-											equals += ",";
-										}
-										equals += "\""
-												+ snippet_elements[index]
-												+ "\" : \""
-												+ $scope
-														.truncate(
-																thisJson.languageBlocks[$scope.selectedLanguage][snippet_elements[index]],
-																$scope.maxTextLength,
-																' ...')
-														.replace(/\"/g, "\\\"")
-												+ "\"";
-									}
+							if (key != 'null') {
 
-									/* Element in snippet that IS ARRAY */
-									if (thisJson.languageBlocks[$scope.selectedLanguage][snippet_elements[index]] != null
-											&& (thisJson.languageBlocks[$scope.selectedLanguage][snippet_elements[index]] instanceof Array)) {
-										if (index != 0) {
-											equals += ",";
-										}
+								$.each(val, function(key2, val2) {
 
-										var keywords = '';
-										for (i in thisJson.languageBlocks[$scope.selectedLanguage][snippet_elements[index]]) {
-											if (i != 0) {
-												keywords += ",\""
-														+ thisJson.languageBlocks[$scope.selectedLanguage][snippet_elements[index]][i]
-														+ "\"";
-											} else {
-												keywords += "\""
-														+ thisJson.languageBlocks[$scope.selectedLanguage][snippet_elements[index]][i]
-														+ "\"";
-											}
-										}
-										equals += "\""
-												+ snippet_elements[index]
-												+ "\" : [" + keywords + "]";
-
-									}
-
-								} else if (snippet_elements[index] in thisJson.languageBlocks['en']) {
-									/* Element in snippet that IS NOT AN ARRAY */
-									if (thisJson.languageBlocks['en'][snippet_elements[index]] != null
-											&& !(thisJson.languageBlocks['en'][snippet_elements[index]] instanceof Array)) {
-										if (index != 0) {
-											equals += ",";
-										}
-										equals += "\""
-												+ snippet_elements[index]
-												+ "\" : \""
-												+ $scope
-														.truncate(
-																thisJson.languageBlocks['en'][snippet_elements[index]],
-																$scope.maxTextLength,
-																' ...')
-														.replace(/\"/g, "\\\"")
-												+ "\"";
-									}
-
-									/* Element in snippet that IS ARRAY */
-									if (thisJson.languageBlocks['en'][snippet_elements[index]] != null
-											&& (thisJson.languageBlocks['en'][snippet_elements[index]] instanceof Array)) {
-										if (index != 0) {
-											equals += ",";
-										}
-
-										var keywords = '';
-										for (i in thisJson.languageBlocks['en'][snippet_elements[index]]) {
-											if (i != 0) {
-												keywords += ",\""
-														+ thisJson.languageBlocks['en'][snippet_elements[index]][i]
-														+ "\"";
-											} else {
-												keywords += "\""
-														+ thisJson.languageBlocks['en'][snippet_elements[index]][i]
-														+ "\"";
-											}
-										}
-										equals += "\""
-												+ snippet_elements[index]
-												+ "\" : [" + keywords + "]";
-
-									}
-
-								}
+									if (key2 == 'title')
+										record.title = val2;
+									else if (key2 == 'description')
+										record.description = val2;
+									else if (key2 == 'keywords')
+										record.keywords = val2;
+								});
 							}
 
-							// WE MUST HAVE ID & SET IN ORDER TO VIEW ITEM
-							if (thisJson.identifier) {
-								equals += '\ , "id\" : \"'
-										+ thisJson.identifier + '\"';
-							}
+							record.set = thisJson.set;
+							record.id = thisJson.identifier;
 
-							// SET
-							if (thisJson.set) {
-								equals += '\ , "set\" : \"' + thisJson.set
-										+ '\"';
-							}
 
-							// RIGHTS
-							if (thisJson.rights.url !== undefined) {
-								equals += '\ , "rights\" : \"'
-										+ thisJson.rights.url + '\"';
-							}
+						});
 
-							temp = '{' + equals + '}';
+						var temp = JSON.parse($scope.sanitize(JSON
+								.stringify(record)));
+						console.log(temp);
 
-							// return every snippet as JSON
-							// console.log(temp);
-							return JSON.parse($scope.sanitize(temp));
-						} else {
-							// console.log('Element with id: ' +
-							// element.identifier + ' doesn\'t support \"' +
-							// $scope.selectedLanguage + '\" language');
-							return null;
-						}
+						return temp;
 
 					}
 

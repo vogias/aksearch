@@ -31,6 +31,7 @@ drupal_add_css('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300
 <?php
 drupal_add_js($lib.'/angular.min.js',array('type'=>'file','scope'=>'footer','weight'=>100));
 drupal_add_js($lib.'/angular-route.min.js',array('type'=>'file','scope'=>'footer','weight'=>101));
+drupal_add_js($lib.'/jquery-1.10.2.min.js',array('type'=>'file','scope'=>'footer','weight'=>101));
 drupal_add_js($lib.'/less-1.5.0.min.js',array('type'=>'file','scope'=>'footer','weight'=>101));
 drupal_add_js($lib.'/ui-bootstrap-0.10.0.min.js',array('type'=>'file','scope'=>'footer','weight'=>102));
 drupal_add_js($app.'/app.js',array('type'=>'file','scope'=>'footer','weight'=>102));

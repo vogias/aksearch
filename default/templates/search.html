@@ -105,7 +105,7 @@
 				<alert type="danger" ng-show="error">
 				{{languages.error_message}} Hmm... Something went wrong! Please try
 				again later :) </alert>
-				<h3>{{result}}</h3>
+
 				<!-- results -->
 				<li class="snippet"
 					ng-repeat="result in filtered = (results | filter:filterResults) ">
@@ -114,12 +114,8 @@
 					{{result.description}} <br> <b><span class="hidden-xs">{{languages.keywords
 							|| 'Keywords'}}: </span></b> <a ng-repeat="keys in result.keywords"
 					href="#/search/?q={{keys}}">{{keys}}<span
-						ng-show="$index != result.keywords.length-1">, </span></a> <br
-					ng-show="result.rights != undefined"> <b><span
-						ng-show="result.rights != undefined" class="hidden-xs">{{languages.copyrights
-							|| 'Rights'}}: </span></b> <a ng-show="result.rights != undefined"
-					href="{{result.rights}}" target=_blank> {{result.rights}} </a> <br>
-					<a class="col-md-2 btn btn-sm btn-default view_more"
+						ng-show="$index != result.keywords.length-1">, </span></a> <a
+					class="col-md-2 btn btn-sm btn-default view_more"
 					href="#/item/{{result.id}}_{{result.set}}">
 						{{languages.view_more}} </a> <!--  <a class="btn btn-sm btn-default" target="_self" href="item_translations.html?id={{result.id}}_{{result.set}}"> View Translations </a> -->
 				</li>

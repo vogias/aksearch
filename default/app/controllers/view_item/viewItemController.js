@@ -25,7 +25,7 @@ listing
 					$scope.ip = '172.17.0.1:8080';
 					$scope.format = '-';
 					$scope.duration = '-';
-					$scope.thumbnail='';
+					$scope.thumbnail = '';
 
 					$scope.item_number_of_visitors = 0;
 					$scope.item_average_rating = 'no rating available yet';
@@ -81,44 +81,45 @@ listing
 								})
 								.success(
 										function(data) {
-											// parse array and create an JS
-											// Object Array
-											// every item is a JSON
-											// console.log(data.results[0]);
+
 											console.log(data.results);
 											var thisJson = data.results;
 
-											/*
-											 * We define the parameters for the
-											 * specific language. In case we
-											 * don't get the element in the
-											 * language we already have selected
-											 * we will change it to 'en' in
-											 * order to avoid empty elements.
-											 */
-											if (thisJson.languageBlocks[$scope.selectedLanguage] !== undefined) {
+											var record = {};
 
-												languageBlock = thisJson.languageBlocks[$scope.selectedLanguage];
+											$
+													.each(
+															thisJson.languageBlocks,
+															function(key, val) {
 
-												if (languageBlock.title !== undefined) {
-													$scope.item_title = languageBlock.title;
-												} else {
-													$scope.item_title = thisJson.languageBlocks['en'].title;
-												}
+																if (key != 'null') {
 
-												if (languageBlock.description !== undefined) {
-													$scope.item_description = languageBlock.description;
-												} else {
-													$scope.item_description = thisJson.languageBlocks['en'].description;
-												}
+																	$
+																			.each(
+																					val,
+																					function(
+																							key2,
+																							val2) {
 
-												if (languageBlock.keywords !== undefined)
-													$scope.item_keywords = languageBlock.keywords;
+																						if (key2 == 'title')
+																							record.title = val2;
+																						else if (key2 == 'description')
+																							record.description = val2;
+																						else if (key2 == 'keywords')
+																							record.keywords = val2;
+																					});
+																}
 
-												if (languageBlock.coverage !== undefined)
-													$scope.item_coverage = languageBlock.coverage;
+															});
 
-											}
+											var langBlock = JSON
+													.parse($scope.sanitize(JSON
+															.stringify(record)));
+
+											$scope.item_title = langBlock.title;
+											$scope.item_description = langBlock.description;
+											$scope.item_keywords = langBlock.keywords;
+											
 
 											// LANGUAGE
 											thisJson.expressions.language !== undefined ? $scope.item_language = language_mapping[thisJson.expressions.language]
@@ -159,11 +160,11 @@ listing
 											if (thisJson.expressions.manifestations.items.url != undefined) {
 												$scope.item_resource_url = thisJson.expressions.manifestations.items.url;
 											}
-											
+
 											// Thumbnail
 											if (thisJson.expressions.manifestations.thumbnail != undefined) {
 												$scope.thumbnail = thisJson.expressions.manifestations.thumbnail;
-												$scope.item_icon=$scope.thumbnail;
+												$scope.item_icon = $scope.thumbnail;
 											}
 
 											// format
@@ -175,36 +176,16 @@ listing
 												$scope.duration = thisJson.expressions.manifestations.duration;
 											}
 
-											
 											// RIGHTS
 
 											if (thisJson.rights.description['en'] !== undefined)
 												$scope.item_rights = thisJson.rights.description['en'];
 
-											
 											// ORGANIZATION
 											thisJson.contributors.name !== undefined ? $scope.item_organization = thisJson.contributors.name
 													: $scope.item_organization = '-';
-											
-											
-											/*
-											 * if
-											 * (thisJson.tokenBlock.taxonPaths['Organic.Edunet
-											 * Ontology'] !== undefined) {
-											 * console.log(thisJson.tokenBlock.taxonPaths);
-											 * $scope.item_classification =[];
-											 * 
-											 * for(i in
-											 * thisJson.tokenBlock.taxonPaths['Organic.Edunet
-											 * Ontology']) { urls =
-											 * thisJson.tokenBlock.taxonPaths['Organic.Edunet
-											 * Ontology'][i].split('::'); for(j
-											 * in urls) {
-											 * $scope.item_classification.push(urls[j].split("#")[1]); } } }
-											 * else { $scope.item_classification =
-											 * '-'; }
-											 */
 
+											
 										})
 
 					};
