@@ -310,11 +310,8 @@ listing
 					 * want to show in listing (i.e. title, description...)
 					 */
 					$scope.getSnippet = function(thisJson, snippet_elements) {
-						
-//						var keys = [];
-//						for ( var k in thisJson.languageBlocks)
-//							keys.push(k);
-//						
+
+										
 						var record = {};
 
 						$.each(thisJson.languageBlocks, function(key, val) {
@@ -327,14 +324,21 @@ listing
 										record.title = val2;
 									else if (key2 == 'description')
 										record.description = val2;
-									else if (key2 == 'keywords')
-										record.keywords = val2;
+									else if (key2 == 'keywords') {
+
+										if (val2 instanceof Array)
+											record.keywords = val2;
+										else {
+											record.keywords = [ val2 ];
+
+										}
+									}
+
 								});
 							}
 
 							record.set = thisJson.set;
 							record.id = thisJson.identifier;
-
 
 						});
 
