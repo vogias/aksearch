@@ -2,13 +2,14 @@
 	ng-init="init_finder('akif','educational')">
 	<!-- Search form -->
 	<!-- 	<div class="search_form_wrapper" > -->
+	
 	<form ng-submit="submit()" class="form-wrapper cf">
 		<!-- IN CASE WE NEED TO SEPARATE THE TYPE OF SEARCH i.e educational ng-submit="submit('educational')" -->
 		<input ng-model="search_query" name="search_query" type="text"
 			placeholder="{{languages.search_here}}...">
 		<button type="submit">{{languages.search}}</button>
 	</form>
-	<!-- 	</div> -->
+	<!-- 	</div>
 
 	<!-- FACETS MOBILE -->
 	<div id="facets" class="col-xs-12 hidden-sm hidden-md hidden-lg"
