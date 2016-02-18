@@ -72,7 +72,7 @@ listing
 										// console.log(err);
 										/*-----------------------------------DEFAULT FINDER SETTINGS-----------------------------------*/
 										// API URL
-										$scope.api_path = 'http://172.17.0.1:8080/agro-search/v1/';
+										$scope.api_path = 'https://services.oer.geant.org/search/v1/';
 										/*
 										 * $scope.api_path =
 										 * 'http://212.189.145.245/search-api/v1/';

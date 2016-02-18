@@ -17,12 +17,12 @@ listing
 					language_mapping['en'] = "English";
 
 					/* AKIF URL */
-					$scope.akif = 'http://172.17.0.1:8080/agro-search/v1/akif/';
+					$scope.akif = 'https://services.oer.geant.org/search/v1/akif/';
 					// $scope.item_resource_id = '';
 					$scope.item_resource_url = '';
 					$scope.user_id = 23;
-					$scope.domain = 'http://172.17.0.1:8080';
-					$scope.ip = '172.17.0.1:8080';
+					$scope.domain = 'https://services.oer.geant.org';
+					$scope.ip = 'services.oer.geant.org';
 					$scope.format = '-';
 					$scope.duration = '-';
 					$scope.thumbnail = '';
@@ -49,20 +49,8 @@ listing
 					$rootScope.getItem = function() {
 
 						var params = $routeParams.itemId;
-						var item_identifier = params.split('+')[0]; // SET_ID
-						var item_set = params.split('+')[1];
-						// var item_identifier = params.substring(0, params
-						// .lastIndexOf("_"));
-						// var item_set = params.substring(
-						// params.lastIndexOf("_") + 1, params.length);
-
-						console.log("RouteParams:" + $routeParams.itemId);
-
-						console.log("Identifier:" + item_identifier);
-						console.log("Set:" + item_set);
-
-						console.log("URL to request:" + $scope.akif + item_set
-								+ '/' + item_identifier);
+						var item_identifier = params.split('~')[0]; // SET_ID
+						var item_set = params.split('~')[1];
 
 						var headers = {
 							'Content-Type' : 'application/json',

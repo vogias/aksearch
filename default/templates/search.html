@@ -110,13 +110,13 @@
 				<li class="snippet"
 					ng-repeat="result in filtered = (results | filter:filterResults) ">
 					<span class="title"><a
-						href="#/item/{{result.id}}+{{result.set}}">{{result.title}}</a></span> <br>
+						href="#/item/{{result.id}}~{{result.set}}">{{result.title}}</a></span> <br>
 					{{result.description}} <br> <b><span class="hidden-xs">{{languages.keywords
 							|| 'Keywords'}}: </span></b> <a ng-repeat="keys in result.keywords"
 					href="#/search/?q={{keys}}">{{keys}}<span
 						ng-show="$index != result.keywords.length-1">, </span></a> <a
 					class="col-md-2 btn btn-sm btn-default view_more"
-					href="#/item/{{result.id}}+{{result.set}}">
+					href="#/item/{{result.id}}~{{result.set}}">
 						{{languages.view_more}} </a> <!--  <a class="btn btn-sm btn-default" target="_self" href="item_translations.html?id={{result.id}}_{{result.set}}"> View Translations </a> -->
 				</li>
 
