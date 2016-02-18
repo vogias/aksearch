@@ -313,14 +313,7 @@ listing
 								.success(
 										function(data) {
 											$rootScope.languages = data;
-											/*
-											 * if(
-											 * $location.$$url.indexOf('search') >
-											 * -1 ) $scope.findElements(true);
-											 * if(
-											 * $location.$$url.indexOf('item') >
-											 * -1 ) $scope.getItem();
-											 */
+											
 
 											$location.$$url.indexOf('item') > -1 ? $scope
 													.getItem()

@@ -48,15 +48,13 @@ listing
 					 */
 					$rootScope.getItem = function() {
 
-						// var item_identifier =
-						// $routeParams.itemId.split('_')[0]; //SET_ID
-						// var item_set = $routeParams.itemId.split('_')[1];
-
 						var params = $routeParams.itemId;
-						var item_identifier = params.substring(0, params
-								.lastIndexOf("_"));
-						var item_set = params.substring(
-								params.lastIndexOf("_") + 1, params.length);
+						var item_identifier = params.split('+')[0]; // SET_ID
+						var item_set = params.split('+')[1];
+						// var item_identifier = params.substring(0, params
+						// .lastIndexOf("_"));
+						// var item_set = params.substring(
+						// params.lastIndexOf("_") + 1, params.length);
 
 						console.log("RouteParams:" + $routeParams.itemId);
 
@@ -82,7 +80,7 @@ listing
 								.success(
 										function(data) {
 
-											console.log(data.results);
+											// console.log(data.results);
 											var thisJson = data.results;
 
 											var record = {};
@@ -119,7 +117,6 @@ listing
 											$scope.item_title = langBlock.title;
 											$scope.item_description = langBlock.description;
 											$scope.item_keywords = langBlock.keywords;
-											
 
 											// LANGUAGE
 											thisJson.expressions.language !== undefined ? $scope.item_language = language_mapping[thisJson.expressions.language]
@@ -185,7 +182,6 @@ listing
 											thisJson.contributors.name !== undefined ? $scope.item_organization = thisJson.contributors.name
 													: $scope.item_organization = '-';
 
-											
 										})
 
 					};

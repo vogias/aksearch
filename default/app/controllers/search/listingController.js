@@ -22,7 +22,7 @@ listing
 						$scope.loading = true;
 						// enable error message : true/false
 						$scope.error = false;
-
+						
 						// If query defined in URL
 						if ($routeParams.q) {
 							$rootScope.query = 'q=' + $routeParams.q;
@@ -311,6 +311,7 @@ listing
 					 */
 					$scope.getSnippet = function(thisJson, snippet_elements) {
 
+						//console.log(thisJson);
 										
 						var record = {};
 
@@ -344,7 +345,7 @@ listing
 
 						var temp = JSON.parse($scope.sanitize(JSON
 								.stringify(record)));
-						console.log(temp);
+						//console.log(temp);
 
 						return temp;
 
