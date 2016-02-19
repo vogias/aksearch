@@ -1,2 +1,2 @@
-Drupal 7 Module for Agroknow Finder
-more info : https://github.com/agroknow/finder
+Drupal 7 Module for eduOER Seach API
+more info : https://services.oer.geant.org/

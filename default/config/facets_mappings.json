@@ -312,7 +312,11 @@
     },
     {
       "human": "Project MAOR",
-      "machine": "MAOR"
+      "machine": "maor"
+    },
+    {
+      "human": "Riunet Repository",
+      "machine": "upv"
     },
     {
       "human": "Campus do Mar",

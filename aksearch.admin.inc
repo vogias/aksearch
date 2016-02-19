@@ -81,7 +81,7 @@ $form['aksearch_facets'] = array(
 $form['aksearch_facets_f'] = array(
 		'#type' => 'checkboxes',
 		'#title' => t('Users may search using these facets'),
-		'#options' => array('set' => 'set','format' => 'format', 'language' => 'language' , 'contexts' => 'contexts' , 'learningResourceTypes' => 'learningResourceTypes' , 'endUserRoles' => 'endUserRoles' ),
+		'#options' => array('set' => 'set','format' => 'format','duration' => 'duration', 'language' => 'language' , 'contexts' => 'contexts' , 'learningResourceTypes' => 'learningResourceTypes' , 'endUserRoles' => 'endUserRoles' ),
 		'#default_value' => variable_get('aksearch_facets_f', array('language')),
 		'#description' => t('Please select the desired facets'),
 );
