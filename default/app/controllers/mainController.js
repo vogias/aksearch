@@ -203,7 +203,7 @@ listing
 							break;
 						default:
 							$scope.facets = [ "set", "language", "contexts",
-									'learningResourceTypes' ];
+									'learningResourceTypes','format' ];
 						}
 
 						// In every schema we define the specific elements we
@@ -216,7 +216,7 @@ listing
 									"keywords" ]
 							break;
 						default:
-							$scope.facets = [ 'set', 'language', 'contexts' ];
+							$scope.facets = [ 'set', 'language', 'format' ];
 						}
 
 						// Check for selected schema. If nothing is selected we

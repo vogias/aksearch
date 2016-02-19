@@ -291,232 +291,64 @@
   ],
   "set": [
     {
-      "human": "Green OER",
-      "machine": "greenoer"
+      "human": "National Distance Education University",
+      "machine": "uned"
     },
     {
-      "human": "Ellinogermaniki Enosi",
-      "machine": "eduellinogermaniki"
+      "human": "FCCN Educast Repository",
+      "machine": "fccn"
     },
     {
-      "human": "Green Food Safety Partnership",
-      "machine": "aglrgfsp"
+      "human": "Videotorium",
+      "machine": "videotorium"
     },
     {
-      "human": "Digital Green",
-      "machine": "digitalgreen"
+      "human": "UVigo-TV",
+      "machine": "vigo"
     },
     {
-      "human": "OER Africa",
-      "machine": "oerafrica"
+      "human": "UVigo-TV RSS Channel",
+      "machine": "vigo_rss"
     },
     {
-      "human": "SERCMICRO",
-      "machine": "sercmicro"
+      "human": "Project MAOR",
+      "machine": "MAOR"
     },
     {
-      "human": "FAO capacity portal",
-      "machine": "faocapacityportal"
+      "human": "Campus do Mar",
+      "machine": "campusdomar"
     },
     {
-      "human": "Traglor",
-      "machine": "traglor"
+      "human": "Stanford University",
+      "machine": "stanford"
     },
     {
-      "human": "NSDL Beyond",
-      "machine": "nsdlbeyond"
+      "human": "PSNC multimedia repository",
+      "machine": "psnc"
     },
     {
-      "human": "Educational National Europe",
-      "machine": "edunhmc"
+      "human": "TNC Networking Conference",
+      "machine": "tnc"
     },
     {
-      "human": "Encyclopedia of Life",
-      "machine": "aglreol"
+      "human": "Partnership for Advanced Computing in Europe",
+      "machine": "prace"
     },
     {
-      "human": "Natural Bridge",
-      "machine": "aglrnb"
+      "human": "Univesity of Leon",
+      "machine": "leon"
     },
     {
-      "human": "CGIAR",
-      "machine": "cgiar"
+      "human": "ELTE Digital Institutional Repository",
+      "machine": "elte"
     },
     {
-      "human": "RuForum",
-      "machine": "ruforum"
+      "human": "University of Crete",
+      "machine": "uoc"
     },
     {
-      "human": "Global Forum on Agricultural Research",
-      "machine": "gfar"
-    },
-    {
-      "human": "Great School Gardens",
-      "machine": "aglrgsg"
-    },
-    {
-      "human": "Access Agricultural",
-      "machine": "access"
-    },
-    {
-      "human": "Life Lab",
-      "machine": "aglrllb"
-    },
-    {
-      "human": "Rural Inclusion",
-      "machine": "rurinc"
-    },
-    {
-      "human": "AIMS",
-      "machine": "aglraims"
-    },
-    {
-      "human": "Slow Food",
-      "machine": "aglrslowfood"
-    },
-    {
-      "human": "AGROASIS/NOVA",
-      "machine": "oeagroasis"
-    },
-    {
-      "human": "ENOAT",
-      "machine": "oeenoat"
-    },
-    {
-      "human": "BioAgro",
-      "machine": "oebioagro"
-    },
-    {
-      "human": "Ecologica",
-      "machine": "oeecologiga"
-    },
-    {
-      "human": "Intute",
-      "machine": "oeintute"
-    },
-    {
-      "human": "AUA",
-      "machine": "oeaua"
-    },
-    {
-      "human": "EULS/Estonian",
-      "machine": "oeeulsesthonian"
-    },
-    {
-      "human": "BMLFUW/Austrian",
-      "machine": "oebmlfuwaustrian"
-    },
-    {
-      "human": "FAO",
-      "machine": "oefao"
-    },
-    {
-      "human": "Ellinogermaniki Agogi",
-      "machine": "oeellinogermaniki"
-    },
-    {
-      "human": "Organic e-prints",
-      "machine": "oeorganiceprints"
-    },
-    {
-      "human": "Spanish",
-      "machine": "oespanish"
-    },
-    {
-      "human": "MIKSIKE",
-      "machine": "oemiksike"
-    },
-    {
-      "human": "FAO Codex",
-      "machine": "aglrfaocdx"
-    },
-    {
-      "human": "Food Safety Knowledge Network",
-      "machine": "aglrfskn"
-    },
-    {
-      "human": "Food Safety OER",
-      "machine": "aglrfoodsafety"
-    },
-    {
-      "human": "FAO Right to Food",
-      "machine": "aglrfaorighttofood"
-    },
-    {
-      "human": "Agricom Job Profiles",
-      "machine": "aglragrjobs"
-    },
-    {
-      "human": "Agricom Competences",
-      "machine": "aglragricom"
-    },
-    {
-      "human": "ProdInra",
-      "machine": "prodinraagro"
-    },
-    {
-      "human": "Natural History Museum of Lisbon",
-      "machine": "edumnhn"
-    },
-    {
-      "human": "Estonian Natural History Museum",
-      "machine": "edutnhm"
-    },
-    {
-      "human": "Miksike collection",
-      "machine": "aglrmiksike"
-    },
-    {
-      "human": "Unesco Training Platform",
-      "machine": "optunesco"
-    },
-    {
-      "human": "Jura-Eichstatt Museum",
-      "machine": "edujura"
-    },
-    {
-      "human": "Bio@gro",
-      "machine": "oebiagro"
-    },
-    {
-      "human": "SEAE",
-      "machine": "aglrseae"
-    },
-    {
-      "human": "Arctic Centre",
-      "machine": "eduac"
-    },
-    {
-      "human": "FAO Capacity Development Portal",
-      "machine": "aglrfaocapacityportal"
-    },
-    {
-      "human": "FAO Good Practices",
-      "machine": "aglrfaogoodpractices"
-    },
-    {
-      "human": "FAO iMArk",
-      "machine": "aglrfaoimark"
-    },
-    {
-      "human": "FAO ERP Toolkit Primary & secondary edication",
-      "machine": "aglrfaoerptoolkitprimsec"
-    },
-    {
-      "human": "Hungarian Natural History Museum",
-      "machine": "eduhnhm"
-    },
-    {
-      "human": "FAO ERP Toolkit",
-      "machine": "aglrfaoerptoolkit"
-    },
-    {
-      "human": "OE Ecologica",
-      "machine": "oeecologica"
-    },
-    {
-      "human": "Agricom Jobs",
-      "machine": "agricomjobs"
+      "human": "University of Crete RSS channel",
+      "machine": "uoc_rss"
     }
   ],
    "endUserRoles": [
